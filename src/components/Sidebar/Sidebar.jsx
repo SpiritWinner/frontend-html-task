@@ -41,33 +41,49 @@ export default class Sidebar extends React.Component {
 
         return (
             <div className={ containerClassnames }>
-                <div>
+                <div className='sidebar-header'>
                     <img
+                        className='sidebar-logo'
                         src={ logo }
                         alt="TensorFlow logo"
                     />
-                    <span>TensorFlow</span>
-                    <button onClick={ this.toggleSidebar }>
+                    <span >TensorFlow</span>
+                    <button 
+                        className='sidebar-button'
+                        onClick={ this.toggleSidebar }
+                    >
                         <FontAwesomeIcon icon={ isOpened ? 'angle-left' : 'angle-right' } />
                     </button>
                 </div>
 
-                <div>
+                <div className='sidebar-menu'>
                     {
                         routes.map((route) => (
-                            <div key={ route.title } onClick={ () => this.goToRoute(route.path) }>
-                                <FontAwesomeIcon icon={ route.icon } />
+                            <div 
+                                className='sidebar-item'
+                                key={ route.title } 
+                                onClick={ () => this.goToRoute(route.path) }
+                            >
+                                <FontAwesomeIcon 
+                                    icon={ route.icon } 
+                                />
                                 <span>{ route.title }</span>
                             </div>
                         ))
                     }
                 </div>
 
-                <div>
+                <div className='sidebar-menu bottom'>
                     {
                         bottomRoutes.map((route) => (
-                            <div key={ route.title } onClick={ () => this.goToRoute(route.path) }>
-                                <FontAwesomeIcon icon={ route.icon } />
+                            <div 
+                                className='sidebar-item'
+                                key={ route.title } 
+                                onClick={ () => this.goToRoute(route.path) }
+                            >
+                                <FontAwesomeIcon 
+                                    icon={ route.icon } 
+                                />
                                 <span>{ route.title }</span>
                             </div>
                         ))
